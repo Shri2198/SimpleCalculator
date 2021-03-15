@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>
+            This is a basic calculator
+        </title>
+        <h1>Calculator</h1>
+    </head>
+    <body>
+        <input id="txt1" type="text" placeholder="Enter First number"><br>
+        <input id="txt2" type="text" placeholder="Enter Second number">
+        <br><br>
+        <select id="select" value="selectbox" onchange="setValue()">
+            <option value="add">Addition</option>
+            <option value="sub">Subtraction</option>
+            <option value="div">Division</option>
+            <option value="mul">Multiplication</option>
+            
+        </select>
+        <br><br>
+        <button type="button" value="calculate" onclick="Calculate()">Calculate</button><br>
+        <h2>The result is:</h2>
+        <input type="text" id="result" placeholder="Result" readonly onfocus="this.blur();">
+    </body>
+    <script type="text/javascript">
+    var firstNum;
+    var secondNum;
+    var selectValue;
+    function Calculate()
+    {
+        firstNum = parseFloat(document.getElementById("txt1").value)
+        secondNum = parseFloat(document.getElementById("txt2").value)
+        var Result;
+        if(selectValue=="mul"){
+            Result = parseFloat(firstNum * secondNum)
+        }
+        else if(selectValue=="sub")
+        {
+            Result = parseFloat(firstNum - secondNum)
+        }
+        else if(selectValue=="div")
+        {
+            Result = parseFloat(firstNum / secondNum)
+        }
+        else
+        {
+            Result = parseFloat(firstNum + secondNum)
+        }
+
+        var output = document.getElementById("result")
+        output.value = Result;
+       
+
+    }
+    function setValue()
+    {
+        selectValue=document.getElementById("select").value
+    }
+    </script>
+</html>
